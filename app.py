@@ -70,7 +70,7 @@ if st.button("Simulate Attack"):
     dict_result = dictionary_attack(password)
     st.write(dict_result)
 
-    st.write("Running brute force attack (limited demo)...")
+    st.write("Running brute force attack simulation...")
 
     brute_result = brute_force_attack(password, max_length=4)
 
@@ -79,4 +79,5 @@ if st.button("Simulate Attack"):
         st.write(brute_result)
     else:
         st.success("Brute force attack failed (password too strong).")
+
 
