@@ -57,27 +57,25 @@ if result['feedback']:
 else:
         st.success("Excellent password!")
 
-    # Generator
+   # Generator
 st.subheader("Suggested Strong Password")
 st.code(generate_strong_password(14), language="text")
 
-st.subheader("⚔️ Attack Simulation")
+st.subheader("⚔ Attack Simulation")
 
 if st.button("Simulate Attack"):
 
     st.write("Running dictionary attack...")
-
     dict_result = dictionary_attack(password)
-    st.write(dict_result)
+    st.json(dict_result)
 
     st.write("Running brute force attack simulation...")
+    brute_result = brute_force_attack(password)
 
-    brute_result = brute_force_attack(password, max_length=4)
+    st.success("Brute force simulation completed")
+    st.subheader("Brute Force Attack Results")
+    st.json(brute_result)
 
-    if brute_result:
-        st.error("Password cracked via brute force!")
-        st.write(brute_result)
-    else:
-        st.success("Brute force attack failed (password too strong).")
+
 
 
